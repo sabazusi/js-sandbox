@@ -4,12 +4,14 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel --no-comments src -d dist && cpx src/index.html dist/",
+    "copy-files": "cpx src/index.html dist/ && cpx src/index.goml dist/ && cpx src/index.css dist/",
+    "build": "babel --no-comments src -d .babel && webpack && npm run copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-runtime": "^6.20.0",
     "grimoirejs": "^0.13.0",
     "grimoirejs-fundamental": "^0.10.10",
     "grimoirejs-math": "^1.8.1"
@@ -17,8 +19,11 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "webpack": "^1.14.0"
   }
 }
