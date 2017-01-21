@@ -4,8 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "copy-files": "cpx src/index.html dist/ && cpx src/index.goml dist/ && cpx src/index.css dist/",
-    "build": "babel --no-comments src -d .babel && webpack && npm run copy-files",
+    "build": "webpack && npm run copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,6 +23,7 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "cpx": "^1.5.0",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }
