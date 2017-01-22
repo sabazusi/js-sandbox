@@ -6,8 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server -w",
     "copy-files": "cpx src/index.html dist/ && cpx src/index.goml dist/ && cpx src/index.css dist/",
-    "build": "webpack && npm run copy-files",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack && npm run copy-files"
   },
   "author": "",
   "license": "ISC",
