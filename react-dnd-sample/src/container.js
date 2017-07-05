@@ -10,39 +10,36 @@ export default class Container extends React.Component {
     super();
     this.state = {
       phases: [
-        {accepts: ['NOTHING'], name: 'todo'},
-        {accepts: ['TODO'], name: 'doing'},
-        {accepts: ['TODO', 'DOING'], name: 'done'}
+        {accepts: ['NOTHING'], name: 'todo', type: 'TODO'},
+        {accepts: ['TODO'], name: 'doing', type: 'DOING'},
+        {accepts: ['TODO', 'DOING'], name: 'done', type: 'DONE'}
       ],
       tasks: [
-        {name: 'first task', type: 'TODO'},
-        {name: 'second task', type: 'TODO'},
-        {name: 'third task', type: 'TODO'},
+        {id: 1, name: 'first task', type: 'TODO'},
+        {id: 2, name: 'second task', type: 'TODO'},
+        {id: 3, name: 'third task', type: 'TODO'},
       ]
     };
   }
+
+  updateItem(item, type) {
+    const tasks = this.state.tasks.map((task) => task.id === item.id ? Object.assign({}, task, {type}) : task);
+    this.setState({tasks});
+  }
+
   render() {
+    const {phases, tasks} = this.state;
     return (
       <div style={{display: 'flex', flexDirection: 'column'}}>
         <div style={{display: 'flex'}}>
           {
-            this.state.phases.map(({accepts, name}, index) => (
+            phases.map(({accepts, name, type}, index) => (
               <Phase
                 accepts={accepts}
                 name={name}
                 key={index}
-                onDrop={() => alert('dropped')}
-              />
-            ))
-          }
-        </div>
-        <div style={{display: 'flex'}}>
-          {
-            this.state.tasks.map(({name, type}, index) => (
-              <Task
-                name={name}
-                type={type}
-                key={index}
+                tasks={tasks.filter(task => task.type === type)}
+                onDrop={(item) => this.updateItem(item, type)}
               />
             ))
           }

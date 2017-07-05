@@ -5,6 +5,7 @@ const spec = {
   beginDrag(props) {
     return {
       name: props.name,
+      id: props.id
     };
   },
 };
