@@ -15,8 +15,10 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
     "react": "^15.5.3",
-    "react-dom": "^15.5.3"
+    "react-dom": "^15.5.3",
+    "style-loader": "^0.18.2"
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8"

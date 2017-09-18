@@ -8,3 +8,7 @@
   display: block;
   border-width: 2px;
 }
+.check::before {
+  content: "";
+  border-right: 1px solid #f00;
+}
